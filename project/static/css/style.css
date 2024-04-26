@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+a.Reg {
+    color: black;
+    font-size: 24px;
+    text-decoration: underline;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-family: 'Inter', sans-serif;
+
+}
+a.Aut {
+    color: black;
+    font-size: 24px;
+    text-decoration: underline;
+    position: absolute;
+    top: 0;
+    right: 185px;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.home{
+    text-align: center;
+    font-size: 100px;
+    justify-content: center;
+    margin-top: 350px;
+    font-family: 'Inter', sans-serif;
+  
+}
+/* 
+.Login {
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    
+}
+
+.Password {
+    text-align: center;
+    border-radius: 10px;
+    justify-content: center;
+    width: 370px;
+    height: 93px;
+    font-family: 'Inter', sans-serif;
+}
+
+.Form{
+    text-align: center;
+    width: 450px;
+    height: 540px;
+    border-radius: 25px;
+    border: 3px;
+} */
