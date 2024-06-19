@@ -1,10 +1,39 @@
 {% extends 'base.html' %}
-
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <h1>Authorization</h1>
-<form method="post">
-    <input type="text" name = "name" placeholder="name">
-    <input type="password" name = "password" placeholder="password">
-    <button type = "submit">Підтвердити</button>
+{% if success %}
+<script>
+    window.location.href = '/Home/'; // Перенаправление на начальную страницу
+</script>
+{% else %}
+<form method="post" id="Form2">
+    <p class="login_or_email"> Login or email </p>
+    <input class="Text2" type="text" name="name">
+    <p class="password_l"> Password </p>
+    <input class="Password2" type="password" name="password">
+    <button class="Submit2" type="submit">SEND</button>
 </form>
+<div id="modal" class="modal1">
+    <div class="modal-content1">
+        <h1 class="registaration">YOU ARE NOT REGISTERED</h1>
+        <span class="arrow">→</span>
+        <a href="/Registration/" class="Reg_a">Registration</a>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var perevirka = '{{ perevirka }}';
+      const modal = document.getElementById("modal");
+      if (perevirka === "False") {
+        openModal();
+      }
+      function openModal() {
+        modal.style.display = "block";
+      }
+    });
+  </script>
+{% endif %}
 {% endblock %}
+
+

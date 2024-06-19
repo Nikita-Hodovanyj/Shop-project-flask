@@ -1,10 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css') }}">
+
 <h1>Registration</h1>
-<form class="Form" clasmethod="post">
-    <input class="Login" type="text" name = "Login" placeholder="name">
-    <input class="Password" type="password" name = "Password" placeholder="password">
-    <button class="Submit" type = "Submit">Send</button>
+
+<form method="POST" id="Form">
+    <p class="p_name"> Login </p>
+    <input class="Login" type="text" name="name">
+
+    <p class="p_email"> Email </p>
+    <input class="Email" type="email" name="email">
+
+    <p class="p_password"> Password </p>
+    <input class="Password" type="password" name="password">
+
+    <p class="p_password_confirmation"> Password_confirmation </p>
+    <input class="Password_confirmation" type="password" name="password_confirmation">
+
+    <button class="Submit" type="button" onclick="showModal()">SEND</button>
 </form>
-{% endblock %}
+
+<div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h1 class="confirmed">CONFIRMED</h1>
+        <span class="arrow">→</span>
+        <a href="/Authorization/" class="Aut_r">Authorization</a>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById("modal");
+
+    // Функция для предотвращения закрытия модального окна
+    function preventModalClose(event) {
+        event.stopPropagation();
+    }
+
+    function showModal() {
+        modal.style.display = "block"; // Открываем модальное окно
+        modal.addEventListener("click", preventModalClose, false); // Добавляем обработчик событий для предотвращения закрытия модального окна
+    }
+</script>
+
+{% endblock %}  

@@ -1,0 +1,53 @@
+{% block head %}
+  <script src="{{ url_for('static', filename='js/edit_buttons.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block content %}
+<div class="main_page">
+  <a class="Home2" href="/Home/">Home</a>
+  <a class="Shop" href="/Shop/">Shop</a>
+  <a class="Basket" href="/Basket/">Cart</a>
+  <a class="Admin" href="/Admin/">Admin</a>
+  <div class="counter">
+    <span class="value">0</span>
+  </div>
+  <a class="Contacts" href="/Contacts/">Contacts</a>
+</div>
+<hr>
+<div class='products'>
+  {% for product in products %}
+    {% if loop.index <= 3 %}
+      <div class='box'>
+        <img src="{{ url_for('static', filename='img/iphone15.png') }}" alt="iphone 15" class="iphone15">
+        <div class='text'>
+          <h2 class="product_name_a">{{ product.name }}</h2>
+          <h3 class="product_price_a">{{ product.price }} ₴</h3>
+          <h6 class="product_discount_a">Знижка 10%</h6>
+          <h5 class="total_price_a">49 999₴</h5>
+          <button class='Buy_Button_a' id='{{ product.id }}'> КУПИТИ </button>
+          <form method="post">
+            <button type="button" class="Edit_text" id="Edit_text_{{ product.id }}">🖊</button>
+            <button type="button" class="Edit_price">🖊</button>
+            <button type="button" class="Edit_discount">🖊</button>
+            <button type="button" class="Edit_photo">🖊</button>
+            <button type="button" class="Edit_memory1">🖊</button>
+            <button type="button" class="Edit_memory2">🖊</button>
+            <button type="button" class="Edit_memory3">🖊</button>
+            <button type="button" class="Trash">🗑️</button>
+            <p class="t_product">Видалити продукт</p>
+          </form>
+          <p>ЄМНІСТЬ:</p>
+          <div class='memory_a'>
+            <h1 class="product_memory1">256гб</h1>
+            <h1 class="product_memory2">512гб</h1>
+            <h1 class="product_memory3">1тб</h1>
+          </div>
+        </div>
+      </div>
+      <hr>
+    {% endif %}
+  {% endfor %}
+  <button type="button" class="New_product">+</button>
+  <p class="p_product">Додати продукт</p>
+</div>
+{% endblock %}

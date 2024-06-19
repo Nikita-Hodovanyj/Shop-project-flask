@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+
+
+
+.main_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+  
+.Shop {
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Inter', sans-serif;
+
+  }

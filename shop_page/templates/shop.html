@@ -1,0 +1,92 @@
+{% block head %}
+  <script src="{{ url_for('shop.static', filename = 'js/set_cookie.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+<div class="main_page">
+  <a class="Home2" href="/Home/">Home</a>
+  <a class="Shop" href="/Shop/">Shop</a>
+    
+  <a class="Basket" href="/Basket/">Cart</a>
+  <div class="counter">
+    <span class="value">0</span>
+  </div>
+  <a class="Contacts" href="/Contacts/">Contacts</a>
+  <a class="Admin" href="/Admin/">Admin</a>
+</div>
+<b><hr></b>
+
+
+<!-- <div class = "total_price">
+  <h1 class = "total_price">44 999₴</h5>
+  <h5 class = "total_price">44 999₴</h5>
+  <p class = "total_price">44 999₴</p>
+</div> -->
+
+<div class = 'products'>
+  {% for product in products %}
+    {% if loop.index <= 3 %}
+      <div class = 'box'>
+        <img src = "{{ url_for('static', filename='img/iphone15.png') }}" alt="iphone 15" class="iphone15">
+        <div class = 'text'>
+          <h2 class = "product_name">{{ product.name }}</h2>
+          <h3 class = "product_price">{{ product.price }} ₴</h3>
+          <h6 class = "discount_s">Знижка 10%</h4>
+          <h5 class="ever_price">49 999₴</h5>
+        <button class = 'Buy_Button' id = '{{ product.id }}'> КУПИТИ </button>
+        <!-- <button class="Buy_Button" type="button" id = '{{ product.id }}'>КУПИТИ</button> -->
+          <p>
+            ЄМНІСТЬ: 
+          </p>
+          <div class = 'memory'>
+            <h4 id = "h256"> 256гб </h4>
+            <h4 id = "h512"> 512гб </h4>
+            <h4 id = "h10"> 1тб </h4>
+          </div>
+
+
+          <div class = 'confirm'>
+            <img src = "{{ url_for('static', filename='img/Confirm_ico.png') }}" alt="Confirm_ico" class="confirm1">
+            <h1>Товар в наявності</h1>
+          </div>
+
+
+        </div>
+        
+      </div>
+      
+        
+      
+        <hr>
+    {% endif %}
+{% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+<!--  -->
+
+
+
+
+
+
+
+
+
+
+
+
+

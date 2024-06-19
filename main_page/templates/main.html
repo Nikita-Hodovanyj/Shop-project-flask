@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+{% block content %}
+<div class="main_page">
+  <a class="Home2" href="/Home/">Home</a>
+  <a class="Shop" href="/Shop/">Shop</a>
+  <a class="Basket" href="/Basket/">Cart</a>
+  <a class="Contacts" href="/Contacts/">Contacts</a>
+  <a class="Admin" href="/Admin/">Admin</a>
+  {% if userName != '' %}
+    <h1 class="name">{{ userName }}</h1>
+  {% endif %}
+  
+  <p class="home1">HOME PAGE</p>
+</div>
+{% endblock %}
+
+
+
