@@ -1020,7 +1020,6 @@ a.Home2 {
   font-weight: bolder;
   margin-bottom: 400px;
   
-  
 
 }
 
@@ -1122,11 +1121,232 @@ a.Home2 {
 }
 
 
+.product_name_ad{
+  font-size: 25px;
+  position: absolute;
+  right:560px!important;
+  white-space: nowrap; 
+  font-weight: bolder;  
+  top: 1530px;
+  
+
+}
+.product_quantity{
+  font-size: 32px;
+  
+}
+/* 
+.product_price_ad{
+  font-size: 50px;
+  border-right: 3px solid black;
+  border-left: 3px solid black;
+  position: absolute;
+  right: 50px;
+} */
+
+
+.product_photo_ad{
+  width: 148px;
+  height: 179px;
+  margin-left: 100;
+  margin-top: 60;
+  border-right: solid 3px black;
+  padding-right: 1070px; 
+
+  
+}
+
+
+.Edit_photo_ad{
+  position: absolute;
+  top: 1820px!important ;
+  left: 220px;
+  margin-left: 100px;
+  width: 30px !important;
+  height: 30px !important;
+  background-color: #D1D8DB !important;
+  border: #000000 solid 3px !important;
+  border-radius: 10px !important;
+  right: 940px !important;
+  position: absolute !important;
+  margin-top: -160px !important;
+  font-family: 'Inter', sans-serif;
+
+  
+
+}
+
+
+.product_discount_ad{
+  width: 377px;
+  height: 53px;
+  font-size: 18px;
+  text-align: right;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  position: absolute;
+  right: 962px;
+  top: 1570px;
+
+}
+
+.product_price_ad{
+  position: absolute;
+  width: 200px;
+  height: 34px;
+  font-weight: 900;
+  font-style: bold;
+  font-size: 30px;
+  top: 1600px;
+  font-family: 'Inter', sans-serif;
+  font-weight: bolder;
+  right: 870px!important;
+}
+
+.Edit_text_ad{
+  position: absolute;
+  top: 1532px;
+  right: 490px;
+  width: 30px !important;
+  height: 30px !important;
+  background-color: #D1D8DB !important;
+  border: #000000 solid 3px !important;
+  border-radius: 10px !important;
+}
+
+
+.Edit_discount_ad {
+  position: absolute;
+  top: 1565px;
+  right: 910px;
+  width: 30px !important;
+  height: 30px !important;
+  background-color: #D1D8DB !important;
+  border: #000000 solid 3px !important;
+  border-radius: 10px !important;
+}
+
+.Edit_price_ad {
+  position: absolute;
+  top: 1606px;
+  right: 910px;
+  width: 30px !important;
+  height: 30px !important;
+  background-color: #D1D8DB !important;
+  border: #000000 solid 3px !important;
+  border-radius: 10px !important;
+}
+
+
+.Trash_ad{
+  width: 31px;
+  height: 37px;
+  background-color: transparent;
+  border: 0px;
+  font-size: 20px;
+  position: absolute;
+  right: 300px;
+  margin-top: 33px !important;
+  white-space: nowrap;
+  top: 1746px;
+}
 
 
 
 
 
+.product_memory1_ad{
+  font-size: 20px;
+  position: absolute;
+  top: 1780px;
+  right: 1000px !important;
+  width: 60px;
+  font-family: 'Inter', sans-serif;
+  border: 2px solid black;
+  border-radius: 20px;
+  text-align: center;
+}
+.product_memory2_ad{
+  font-size: 20px;
+  position: absolute;
+  top: 1780px;
+  right: 900px !important;
+  width: 60px;
+  font-family: 'Inter', sans-serif;
+  border: 2px solid black;
+  border-radius: 20px;
+  text-align: center;
+}
+.product_memory3_ad{
+  font-size: 20px;
+  position: absolute;
+  top: 1780px;
+  right: 800px !important;
+  width: 60px;
+  font-family: 'Inter', sans-serif;
+  border: 2px solid black;
+  border-radius: 20px;
+  text-align: center;
+}
 
 
 
+.Buy_Button_ad{
+  border-radius: 15px;
+  border: black solid 2px;
+  width: 140px;
+  height: 55px;   
+  font-size: 24px;
+  background-color: #EFCB4A;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  display: block;
+  position: absolute; 
+  top: 1655px;
+  right: 930px !important;
+  
+}
+.product_capacity_title{
+  font-family: 'Inter', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  top: 1745px;
+  right: 945px !important;
+}
+
+.Edit_memory1_ad{
+  width: 30px !important;
+  height: 30px !important;
+  background-color: #D1D8DB !important;
+  border: #000000 solid 3px !important;
+  border-radius: 10px !important;
+  right: 967px !important;
+  position: absolute !important;
+  margin-top: 317px !important;
+  font-family: 'Inter', sans-serif;
+}
+
+.Edit_memory2_ad{
+  width: 30px !important;
+  height: 30px !important;
+  background-color: #D1D8DB !important;
+  border: #000000 solid 3px !important;
+  border-radius: 10px !important;
+  right: 867px !important;
+  position: absolute !important;
+  margin-top: 317px !important;
+  font-family: 'Inter', sans-serif;
+}
+.Edit_memory3_ad{
+  width: 30px !important;
+  height: 30px !important;
+  background-color: #D1D8DB !important;
+  border: #000000 solid 3px !important;
+  border-radius: 10px !important;
+  right: 767px !important;
+  position: absolute !important;
+  margin-top: 317px !important;
+  font-family: 'Inter', sans-serif;
+}

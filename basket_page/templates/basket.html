@@ -1,7 +1,3 @@
-
-
-
-
 {% block content %}
 
 <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
@@ -17,16 +13,6 @@
   <a class="Contacts" href="/Contacts/">Contacts</a>
   <a class="Admin" href="/Admin/">Admin</a>
 </div>
-
-
-
-
-
-
-
-
-
-
     
     {% if products %}
         {% for product in products %}
@@ -47,4 +33,5 @@
     {% endif %} 
     <script src= "{{ url_for('basket.static', filename = 'js/deleteCookies.js') }}"></script>
     <script src= "{{ url_for('basket.static', filename = 'js/culc_products.js') }}"></script>
-{% endblock %}
+    <script src="{{ url_for('basket.static', filename = 'js/modal_window.js') }}"></script>
+    {% endblock %}

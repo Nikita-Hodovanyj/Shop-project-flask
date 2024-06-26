@@ -1,0 +1,1 @@
+let buttonModal = document.querySelectorAll(".go_to_checkout")

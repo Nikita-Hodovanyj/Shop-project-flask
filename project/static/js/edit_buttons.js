@@ -27,15 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const changeTitle = document.createElement('p');
         changeTitle.textContent = titleText;
 
-        const inputField = document.createElement('input');
-        inputField.classList.add('modal-input');
-        inputField.type = isFileInput ? 'file' : 'text';
-        if (!isFileInput) {
-            inputField.placeholder = placeholderText;
-        }
-
         const additionalFields = {};
         if (hasAdditionalFields) {
+            additionalFields.nameField = document.createElement('input');
+            additionalFields.nameField.classList.add('modal-input');
+            additionalFields.nameField.type = 'text';
+            additionalFields.nameField.placeholder = 'Name-product';
+
             additionalFields.priceField = document.createElement('input');
             additionalFields.priceField.classList.add('modal-input');
             additionalFields.priceField.type = 'text';
@@ -59,6 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
             additionalFields.photoUploadField = document.createElement('input');
             additionalFields.photoUploadField.classList.add('modal-input');
             additionalFields.photoUploadField.type = 'file';
+        } else {
+            const inputField = document.createElement('input');
+            inputField.classList.add('modal-input');
+            inputField.type = isFileInput ? 'file' : 'text';
+            if (!isFileInput) {
+                inputField.placeholder = placeholderText;
+            }
+            additionalFields.inputField = inputField;
         }
 
         const saveButton = document.createElement('button');
@@ -66,23 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
         saveButton.addEventListener('click', (event) => {
             event.stopPropagation();
 
-            if (isFileInput) {
-                const file = inputField.files[0];
-                if (file && currentElement) {
-                    const reader = new FileReader();
-                    reader.onload = function (e) {
-                        currentElement.src = e.target.result;
-                    };
-                    reader.readAsDataURL(file);
-                }
-            } else {
-                const newValue = inputField.value.trim();
-                if (currentElement && newValue) {
-                    currentElement.textContent = newValue;
-                }
-            }
-
             if (hasAdditionalFields) {
+                const nameValue = additionalFields.nameField.value.trim();
                 const priceValue = additionalFields.priceField.value.trim();
                 const discountValue = additionalFields.discountField.value.trim();
                 const quantityValue = additionalFields.quantityField.value.trim();
@@ -92,34 +83,51 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (file) {
                     const reader = new FileReader();
                     reader.onload = function (e) {
-                        createNewProduct(descriptionValue, priceValue, discountValue, quantityValue, e.target.result);
+                        createNewProduct(nameValue, descriptionValue, priceValue, discountValue, quantityValue, e.target.result);
                     };
                     reader.readAsDataURL(file);
                 } else {
-                    createNewProduct(descriptionValue, priceValue, discountValue, quantityValue, null);
+                    createNewProduct(nameValue, descriptionValue, priceValue, discountValue, quantityValue, null);
                 }
-            }
 
-            inputField.value = '';
-            if (hasAdditionalFields) {
+                additionalFields.nameField.value = '';
                 additionalFields.priceField.value = '';
                 additionalFields.discountField.value = '';
                 additionalFields.quantityField.value = '';
                 additionalFields.descriptionField.value = '';
                 additionalFields.photoUploadField.value = '';
+            } else {
+                if (isFileInput) {
+                    const file = additionalFields.inputField.files[0];
+                    if (file && currentElement) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            currentElement.src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                } else {
+                    const newValue = additionalFields.inputField.value.trim();
+                    if (currentElement && newValue) {
+                        currentElement.textContent = newValue;
+                    }
+                }
+                additionalFields.inputField.value = '';
             }
 
             closeModal(modal);
         });
 
         modalContent.appendChild(changeTitle);
-        modalContent.appendChild(inputField);
         if (hasAdditionalFields) {
+            modalContent.appendChild(additionalFields.nameField);
             modalContent.appendChild(additionalFields.priceField);
             modalContent.appendChild(additionalFields.discountField);
             modalContent.appendChild(additionalFields.quantityField);
             modalContent.appendChild(additionalFields.descriptionField);
             modalContent.appendChild(additionalFields.photoUploadField);
+        } else {
+            modalContent.appendChild(additionalFields.inputField);
         }
         modalContent.appendChild(saveButton);
         modal.appendChild(modalContent);
@@ -131,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         modal.addEventListener('click', () => closeModal(modal));
 
-        return { modal, inputField, ...additionalFields };
+        return { modal, ...additionalFields };
     }
 
     const textModal = createModal('Change Text', 'Введите новый текст', false, '700px', '965px');
@@ -141,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const memory2Modal = createModal('Change Memory 2', 'Введите новую память 2', false, '700px', '965px');
     const memory3Modal = createModal('Change Memory 3', 'Введите новую память 3', false, '700px', '965px');
     const photoModal = createModal('Change Photo', '', true, '700px', '965px');
-    const newProductModal = createModal('New Product', 'Name-product', false, '700px', '965px', true, 'new-product-modal');
+    const newProductModal = createModal('New Product', false, false, '700px', '965px', true, 'new-product-modal');
 
     function openModal(modal) {
         modal.style.display = 'block';
@@ -193,57 +201,103 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    function createNewProduct(description, price, discount, quantity, photoUrl) {
+    function createNewProduct(name, description, price, discount, quantity, photoUrl) {
         const productBox = document.createElement('div');
         productBox.classList.add('box');
+        productBox.id = `product-${Date.now()}`;
 
         const productName = document.createElement('div');
-        productName.classList.add('product_name_a');
-        productName.textContent = description;
+        productName.classList.add('product_name_ad');
+        productName.textContent = name;
+
+        const productDescription = document.createElement('div');
+        productDescription.classList.add('product_description_ad');
+        productDescription.textContent = description;
 
         const productPrice = document.createElement('div');
-        productPrice.classList.add('product_price_a');
+        productPrice.classList.add('product_price_ad');
         productPrice.textContent = price;
 
         const productDiscount = document.createElement('div');
-        productDiscount.classList.add('product_discount_a');
+        productDiscount.classList.add('product_discount_ad');
         productDiscount.textContent = discount;
 
         const productQuantity = document.createElement('div');
         productQuantity.classList.add('product_quantity');
         productQuantity.textContent = quantity;
 
+        const productMemory1 = document.createElement('div');
+        productMemory1.classList.add('product_memory1_ad');
+        productMemory1.textContent = '256гб';
+
+        const productMemory2 = document.createElement('div');
+        productMemory2.classList.add('product_memory2_ad');
+        productMemory2.textContent = '512гб';
+
+        const productMemory3 = document.createElement('div');
+        productMemory3.classList.add('product_memory3_ad');
+        productMemory3.textContent = '1тб';
+
         const productPhoto = document.createElement('img');
-        productPhoto.classList.add('product_photo');
+        productPhoto.classList.add('product_photo_ad');
         if (photoUrl) {
             productPhoto.src = photoUrl;
         }
 
+        const buyButton = document.createElement('button');
+        buyButton.classList.add('Buy_Button_ad');
+        buyButton.textContent = 'КУПИТИ';
+
         const editTextButton = document.createElement('button');
-        editTextButton.classList.add('Edit_text');
-        editTextButton.textContent = 'Edit Text';
+        editTextButton.classList.add('Edit_text_ad');
+        editTextButton.textContent = '🖊';
 
         const editPriceButton = document.createElement('button');
-        editPriceButton.classList.add('Edit_price');
-        editPriceButton.textContent = 'Edit Price';
+        editPriceButton.classList.add('Edit_price_ad');
+        editPriceButton.textContent = '🖊';
 
         const editDiscountButton = document.createElement('button');
-        editDiscountButton.classList.add('Edit_discount');
-        editDiscountButton.textContent = 'Edit Discount';
+        editDiscountButton.classList.add('Edit_discount_ad');
+        editDiscountButton.textContent = '🖊';
 
         const editPhotoButton = document.createElement('button');
-        editPhotoButton.classList.add('Edit_photo');
-        editPhotoButton.textContent = 'Edit Photo';
+        editPhotoButton.classList.add('Edit_photo_ad');
+        editPhotoButton.textContent = '🖊';
+
+        const editMemory1Button = document.createElement('button');
+        editMemory1Button.classList.add('Edit_memory1_ad');
+        editMemory1Button.textContent = '🖊';
+
+        const editMemory2Button = document.createElement('button');
+        editMemory2Button.classList.add('Edit_memory2_ad');
+        editMemory2Button.textContent = '🖊';
+
+        const editMemory3Button = document.createElement('button');
+        editMemory3Button.classList.add('Edit_memory3_ad');
+        editMemory3Button.textContent = '🖊';
 
         const trashButton = document.createElement('button');
-        trashButton.classList.add('Trash');
-        trashButton.textContent = 'Delete';
+        trashButton.classList.add('Trash_ad');
+        trashButton.textContent = '🗑️Видалити товар';
+
+        const capacityTitle = document.createElement('h');
+        capacityTitle.classList.add('product_capacity_title');
+        capacityTitle.textContent = 'ЄМНІСТЬ:';
 
         productBox.appendChild(productName);
+        productBox.appendChild(productDescription);
         productBox.appendChild(productPrice);
         productBox.appendChild(productDiscount);
         productBox.appendChild(productQuantity);
+        productBox.appendChild(capacityTitle);
+        productBox.appendChild(productMemory1);
+        productBox.appendChild(editMemory1Button);
+        productBox.appendChild(productMemory2);
+        productBox.appendChild(editMemory2Button);
+        productBox.appendChild(productMemory3);
+        productBox.appendChild(editMemory3Button);
         productBox.appendChild(productPhoto);
+        productBox.appendChild(buyButton);
         productBox.appendChild(editTextButton);
         productBox.appendChild(editPriceButton);
         productBox.appendChild(editDiscountButton);
@@ -252,13 +306,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.body.appendChild(productBox);
 
-        addEventListenerToButtons([editTextButton], textModal.modal, textModal.inputField, '.product_name_a');
-        addEventListenerToButtons([editPriceButton], priceModal.modal, priceModal.inputField, '.product_price_a');
-        addEventListenerToButtons([editDiscountButton], discountModal.modal, discountModal.inputField, '.product_discount_a');
+        // Attach event listeners to the "Edit" buttons
+        addEventListenerToButtons([editTextButton], textModal.modal, textModal.inputField, '.product_name_ad');
+        addEventListenerToButtons([editPriceButton], priceModal.modal, priceModal.inputField, '.product_price_ad');
+        addEventListenerToButtons([editDiscountButton], discountModal.modal, discountModal.inputField, '.product_discount_ad');
+        addEventListenerToButtons([editMemory1Button], memory1Modal.modal, memory1Modal.inputField, '.product_memory1_ad');
+        addEventListenerToButtons([editMemory2Button], memory2Modal.modal, memory2Modal.inputField, '.product_memory2_ad');
+        addEventListenerToButtons([editMemory3Button], memory3Modal.modal, memory3Modal.inputField, '.product_memory3_ad');
         addEventListenerToButtons([editPhotoButton], photoModal.modal, photoModal.inputField, 'img');
+
+        // Attach event listener to the "Delete" button
         trashButton.addEventListener('click', (event) => {
             event.stopPropagation();
             productBox.remove();
         });
     }
+
 });

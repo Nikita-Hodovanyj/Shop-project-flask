@@ -44,3 +44,4 @@ resultElement.innerHTML = `
 `;
 
 document.body.appendChild(resultElement);
+
