@@ -1350,3 +1350,38 @@ a.Home2 {
   margin-top: 317px !important;
   font-family: 'Inter', sans-serif;
 }
+
+
+.modal-content1{
+  width: 600px;
+  height: 700px;
+}
+
+label {
+  margin-top: 10px;
+  font-family: 'Inter', sans-serif;
+}
+
+input, textarea {
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.name_ba, .phone_ba, .email_ba, .surname_ba, .request_ba, .city_ba {
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  border: 3px solid black;
+  border-radius: 15px;
+  font-weight: bolder;
+  display: flex;
+}
+
+.send_ba {
+  font-size: 25px;
+  text-decoration: underline;
+  background-color: transparent;
+  border: 0;
+  padding-top: 20px;
+}
+

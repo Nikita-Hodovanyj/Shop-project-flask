@@ -7,3 +7,5 @@ admin = flask.Blueprint(
     static_folder = 'admin_app/static',
     static_url_path = '/admin/'
 )
+
+

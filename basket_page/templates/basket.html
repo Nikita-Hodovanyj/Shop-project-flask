@@ -1,37 +1,69 @@
 {% block content %}
 
-<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 <div class="main_page">
-  <a class="Home2" href="/Home/">Home</a>
-  <a class="Shop" href="/Shop/">Shop</a>
-    
-  <a class="Basket" href="/Basket/">Cart</a>
-  <div class="counter">
-    <span class="value">0</span>
-  </div>
-  <a class="Contacts" href="/Contacts/">Contacts</a>
-  <a class="Admin" href="/Admin/">Admin</a>
+    <a class="Home2" href="/Home/">Home</a>
+    <a class="Shop" href="/Shop/">Shop</a>
+    <a class="Basket" href="/Basket/">Cart</a>
+    <div class="counter">
+        <span class="value">0</span>
+    </div>
+    <a class="Contacts" href="/Contacts/">Contacts</a>
+    <a class="Admin" href="/Admin/">Admin</a>
 </div>
-    
-    {% if products %}
-        {% for product in products %}
-            <div id = 'product-{{ product.id }}'>
-                <img src = "{{ url_for('static', filename='img/iphone15.png') }}" alt="iphone 15" class="iphone15_b">
-                <h1 class="product_name_b">{{ product.name }}</h1>
-                <h2 class="product_price_b">{{ product.price }} грн</h2>
-                <h3>{{ product.discount }}</h3>
-                <button class= "minus" id = "{{ product.id }}">-</button>
-                <h4 class="product_count_b">{{ product.count }}</h4>
-                <button class= "plus" id = "{{ product.id }}">+</button>
-                <div id="total-price_b"></div>
-            </div>
-        {% endfor %}
-        <button class="go_to_checkout">Перейти до оформлення </button>
-    {% else %}
-        <h2>Корзина порожня</h2>
-    {% endif %} 
-    <script src= "{{ url_for('basket.static', filename = 'js/deleteCookies.js') }}"></script>
-    <script src= "{{ url_for('basket.static', filename = 'js/culc_products.js') }}"></script>
-    <script src="{{ url_for('basket.static', filename = 'js/modal_window.js') }}"></script>
-    {% endblock %}
+
+{% if products %}
+    {% for product in products %}
+        <div id='product-{{ product.id }}'>
+            <img src="{{ url_for('static', filename='img/iphone15.png') }}" alt="iphone 15" class="iphone15_b">
+            <h1 class="product_name_b">{{ product.name }}</h1>
+            <h2 class="product_price_b">{{ product.price }} грн</h2>
+            <h3>{{ product.discount }}</h3>
+            <button class="minus" id="{{ product.id }}">-</button>
+            <h4 class="product_count_b">{{ product.count }}</h4>
+            <button class="plus" id="{{ product.id }}">+</button>
+            <div id="total-price_b"></div>
+        </div>
+    {% endfor %}
+    <button class="go_to_checkout">Перейти до оформлення</button>
+{% else %}
+    <h2>Корзина порожня</h2>
+{% endif %}
+
+<!-- Модальное окно -->
+<div id="modal1" class="modal1">
+    <div class="modal-content1">
+        <span class="close">&times;</span>
+        <h2>Оформлення замовлення</h2>
+        <div class="checkout_div">
+            <form id="checkoutForm">
+                <label for="name_b">Name:</label>
+                <input type="text" id="name" name="name" class="name_ba" required>
+                
+                <label for="surname_b">Surname:</label>
+                <input type="text" id="surname" name="surname" class="surname_ba" required>
+                
+                <label for="phone_b">Phone:</label>
+                <input type="tel" id="phone" name="phone" class="phone_ba" required>
+                
+                <label for="email_b">Email:</label>
+                <input type="email" id="email" name="email" class="email_ba" required>
+                
+                <label for="city_b">City:</label>
+                <input type="text" id="city" name="city" class="city_ba" required>
+                
+                <label for="request_b">Additional request:</label>
+                <textarea id="request" name="request" class="request_ba"></textarea>
+                
+                <button type="submit" class="send_ba">SEND</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/deleteCookies.js') }}"></script>
+<script src="{{ url_for('static', filename='js/culc_products.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modal_windows.js') }}"></script>
+
+{% endblock %}

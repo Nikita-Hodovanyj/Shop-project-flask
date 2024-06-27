@@ -17,7 +17,8 @@
 <hr>
 <div class='products'>
   {% for product in products %}
-  {% if loop.index <= 3 %} <div class='box'>
+  {% if loop.index <= 3 %}
+  <div class='box' data-product-id="{{ product.id }}">
     <img src="{{ url_for('static', filename='img/iphone15.png') }}" alt="iphone 15" class="iphone15">
     <div class='text'>
       <h2 class="product_name_a">{{ product.name }}</h2>
@@ -43,11 +44,11 @@
         <h1 class="product_memory3">1тб</h1>
       </div>
     </div>
-</div>
-<hr>
-{% endif %}
-{% endfor %}
-<button type="button" class="New_product">+</button>
-<p class="p_product">Додати продукт</p>
+  </div>
+  <hr>
+  {% endif %}
+  {% endfor %}
+  <button type="button" class="New_product">+</button>
+  <p class="p_product">Додати продукт</p>
 </div>
 {% endblock %}
