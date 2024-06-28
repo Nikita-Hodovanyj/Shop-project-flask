@@ -1,9 +1,28 @@
-import flask, flask_login
+import flask
+import flask_login
 from flask_mail import Message
 from shop_page.models import Product
 from project.settings import db
 from project.send_mail import mail
 from registration_page.models import User  # Импортируем модель User
+import requests
+
+def send_telegram_message(token, chat_id, text):
+    url = f'https://api.telegram.org/bot{token}/sendMessage'
+    payload = {
+        'chat_id': chat_id,
+        'text': text
+    }
+    try:
+        response = requests.post(url, json=payload)
+        response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
+        if response.status_code == 200:
+            print("Message sent successfully to Telegram.")
+        else:
+            print(f"Failed to send message to Telegram. Status code: {response.status_code}")
+            print(response.json())  # Print the response JSON for debugging
+    except requests.exceptions.RequestException as e:
+        print(f"Failed to send message to Telegram. Error: {e}")
 
 def show_basket_page():
     if flask.request.cookies:
@@ -39,6 +58,12 @@ def show_basket_page():
                 body=f'!\n\nВітаємо, ви купили:\n{products_info}'
             )
             mail.send(msg)
+
+            # Отправляем сообщение на Telegram бота
+            telegram_token = '7361656280:AAHdFpd4ce7f_Ri-JYL4O_nj_SmR2nHWD9M'
+            chat_id = '-1002192574892_1'
+            telegram_text = f'Вітаємо, ви купили:\n{products_info}'
+            send_telegram_message(telegram_token, chat_id, telegram_text)
         
         return flask.render_template(template_name_or_list='basket.html', products=list_products)
     else:
