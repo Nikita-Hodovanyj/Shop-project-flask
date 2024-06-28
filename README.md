@@ -1,13 +1,13 @@
 # Інтернет-магазин
 
 ## Список учасників команди:
-- Никита Годований(TEAMLEAD)/Nikita Hodovanyj(TEAMLEAD) - [GitHub](https://github.com/Nikita-Hodovanyj/Shop-project-flask)
+- Никита Годований(TEAMLEAD)/Nikita Hodovanyj(TEAMLEAD) - [GitHub](https://github.com/Nikita-Hodovanyj)
 - Артем Власов/Artem Vlasov - [GitHub](https://github.com/ArtemVlasov2009)
-- Кирило Кутовий/Kyrylo Kutovyi - [GitHub](Ссылка)
+- Кирило Кутовий/Kyrylo Kutovyi - [GitHub](https://github.com/Kutovoi-Kirill)
 ---
 ## Що робить наш проект/What our project does
 
-##### Наш проект це інтернет магазин з різними товарами, з встроєним телеграм ботом, та відправкою свовіщення на електронну почту, та доданою адмін панелю, що б було зручно керувати продуктами/Our project is an online store with various products, with a built-in telegram bot, and sending notifications by email, and an added admin panel that would be convenient to manage products
+##### Наш проект це інтернет магазин з різними товарами, з встроєним телеграм ботом, та відправкою свовіщення на електронну почту, та доданою адмін панелю, що б було зручно керувати продуктами / Our project is an online store with various products, with a built-in telegram bot, and sending notifications by email, and an added admin panel that would be convenient to manage products
 
 ---
 В нашому проекті використовується багато технологій, а саме/Our project uses many technologies, namely:
@@ -39,7 +39,7 @@ Flask, GitHub, SQLite3, pandas, telebot, HTML, CSS, Javascript,
 - **admin_page** - Це сторінка для власників магазину, продавців які можуть редагувати товари
 - **main_page** - Це головна сторінка нашого проекту
 ---
-![plantuml](https://www.planttext.com/api/plantuml/png/ZLNBRi8m4BplLxXmhWH9e72fW0hElLSLSXihf2IEbPZszvlOiV5Z9NBpZcTtmJC3kqxILjxg2fxaXTMCY8gM7BfhoGLjQKrQogyT4oHPE21lSZQ0gGksx5jINbJidUPvoGkoN01OaCowIoFEecr-UcX6Q4V6CvblNjwEnuF7PLBs8ph5CmMPRpUdmtRZ4czjfKd3mH9SngMfsLdGWYdQK97vwRHVlEnTLikAifCjbMN3xsmNnRggfYWTkYendlxgXZPK6EkBTbScxpnTOqoQr-vULLgUHnH2CuHOOi_tMx8__Nxgj4HVq1cIJ1Y2SkhUCQDI-fWyMfLEM9K-6f9D689oei-RFLgrch1gzMZ8UiAGEmTCWfu_BcMUC_wPFx_Qk83DZNSz10L0nSN3XsGWi1i1v5fP7i47ZoEmjZHoeImCeEBfN_JE1MLV3zPs7PxHIMZOc82oRDoOmEXKxseq9e3ESJWj1UNAU5eAe28TDcIW71WtP30Q3rcV0Oov3yUjGBai7hS2qBy0OSSQbANYZhLZ7TmnWL5yV-2s2DpWco3KFfJSA6qhN62ZQuIEiaPugAcHybxw4XhbR3KAPkj89IEEKmUgM35iQKJOCPxt_xt_)
+![plantuml](https://www.planttext.com/api/plantuml/svg/ZLRBRjim4BplLx3nEO1UTfnBaQI8pxqNHS1MXAnQ3q9Ysj-lk1HfFXQGRfpbx53cpX1-cHMVr6VVmHTr5RrWikFj0FEj7IIVUCycFjnc8LcHUSLXh8Kkbdvn4hyL7vfEVETrtGuDopC0LsGFytMK7t8Q_oob1yPdjgxPuVpqxVtzBU0AfHQ96NaMiCFp-VBsVFQ9drDdI7hX23wZNtxFX-IDG9f6x72vl6PFhpxhElRYpjA8OasYQMSrSTMEdgPVfRgwiV4_0I75CnTaQHfHh5zylWbrvnbCCNdT--SYTBo0AALXI9bHb_ot5V_CBUCg8-_P4ybtYEHR8iKE4PBJB-PSJM6MnTPHvOwZoYsHQeS8oKc-jzewwhZZgEEMo6c7o9q3DgoFFwvjNOlXP_turIKJN4I3RPr904ncKDSX9CewTKJPZnUnZN4YwZe_HDd4XTZ0U03W0n5kBAa0Z4PGDb40mBSYRiW1Ov0sv7eStdCHDnQ0rayR2rWT7zwaCJY0ULHYjHBGtQbQ2O3lIznG0JevRQXWDJ1nV0MmFaAnt17GhQdS4S0yHt772T2QQSV9io3jlCXmeSz2Uz6kYimKUYYsJkmOQnI7GdzOMpX4ky6Q8Ack7aZgiG7itEymdBSTiqFhT1rEHcedwU5eX6vo3jg9lOYXNlvR_0S0)
 ---
 ### Щоб створити шаблон нашого проекту, треба зробити подальші дії / To create a template for our project, we need to take the following steps:
 
