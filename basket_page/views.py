@@ -5,6 +5,7 @@ from shop_page.models import Product
 from project.settings import project_log
 
 
+import logging
 
 def show_basket_page():
     if flask.request.cookies:
@@ -12,7 +13,7 @@ def show_basket_page():
 
         list_products = []
         list_same_id = []
-        mail = Mail(project_log)
+        
         for id_products in list_id_products:
             count_products = list_id_products.count(id_products)
             if id_products not in list_same_id:
@@ -24,12 +25,15 @@ def show_basket_page():
             
             msg = Message(
                 'Hello',
-            recipients=['av3411261@gmail.com'],
-            body='This is a test email sent from Flask-Mail!'
-            )
+                sender=["nikitagodovanyj@gmail.com"],
+                recipients=['gggdansmek@gmail.com'],
+                body='This is a test email sent from Flask-Mail!'
+                )
+            mail = Mail(project_log)
             mail.send(msg)
-        
-        return flask.render_template(template_name_or_list='basket.html', products = list_products)
+            
+
+        return flask.render_template(template_name_or_list='basket.html', products=list_products)
     else:
         return flask.render_template(template_name_or_list='basket.html')
 
