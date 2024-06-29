@@ -7,7 +7,7 @@ class User(db.Model,flask_login.UserMixin):
     email = db.Column(db.String(20), nullable = False)
     password = db.Column(db.String(30), nullable = False)
     password_confirmation = db.Column(db.String(30), nullable = False)
-
+    
     
 
     def __repr__(self) -> str:

@@ -14,6 +14,7 @@ def show_reg_page():
             email=flask.request.form['email'],
             password=flask.request.form['password'],
             password_confirmation=flask.request.form['password_confirmation']
+           
         )
         try:
             db.session.add(user)
